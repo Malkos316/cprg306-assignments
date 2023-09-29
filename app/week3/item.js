@@ -1,8 +1,9 @@
 export default function Item({name, quantity, category}) {
     return (
-        <div>
+        <div className="border-1 max-w-sm m-2 p-2">
             <li>
-                {name} {quantity} {category}
+                <h2 className="text-xl font-bold ">{name}</h2>
+                {quantity} {category}
             </li>
         </div>
     );
