@@ -5,5 +5,5 @@ export default function Item({name, quantity, category}) {
                 {name} {quantity} {category}
             </li>
         </div>
-    )
+    );
 }
