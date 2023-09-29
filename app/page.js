@@ -2,8 +2,8 @@ import { studentInfo } from "./StudentInfo"
 import Link from 'next/link'
 export default function Page() {
   return (
-    <main>
-      <h1>
+    <main className=" p-10">
+      <h1 className=" flex flex-col items-center text-3xl">
         CPRG 306:Web Development 2 - assignments
       </h1>
       <p>
