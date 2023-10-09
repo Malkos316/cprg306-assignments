@@ -1,7 +1,24 @@
 "use client"
+import { useState } from "react";
 
 export default function newItem() {
-    return <main>
-        <h1>new item</h1>
-    </main>;
+    const [name, setName] = useState("");
+    const [quantity, setQuantity] = useState(1);
+    const [category, setCategory] = useState("produce");
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const newItem = {
+            name,
+            quantity,
+            category,
+        };
+
+        console.log(newItem);
+
+        setEventCreated(true);
+
+        alert("Item created!");
+    }
 }
