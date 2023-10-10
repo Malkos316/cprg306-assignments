@@ -42,12 +42,24 @@ export default function NewItem() {
 
     return (
         <main className="flex justify-center">
-            <form  className=" text-black">
-                <div>
-                    <input type="text" placeholder="Item Name" value={setName} required=""/>
+            <form  className=" text-black bg-slate-700 p-4 m-4 max-w-sm w-full rounded-lg">
+                <div className="mb-2">
+                    <input className=" p-2 rounded-lg w-full" type="text" placeholder="Item Name" value={setName} required=""/>
+                </div>
+                <div className="mb-4 flex justify-between">
+                    <input className="w-20 p-2 rounded-lg" type="number" min={1} max={99} required=""/>
+                    <select className="rounded-lg p-2" value={category} required="">
+                        <option value="produce">Produce</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="meat">Meat</option>
+                        <option value="bakery">Bakery</option>
+                        <option value="canned goods">Canned Goods</option>
+                        <option value="dry goods">Dry Goods</option>
+                        <option value="household">Household</option>
+                    </select>
                 </div>
                 <div>
-                    <input type="number" min={1} max={99} value={1} required=""/>
+                    <button className="bg-white rounded-lg w-full p-2 hover:bg-amber-500" type="submit">Add to List</button>
                 </div>
             </form>
         </main>
