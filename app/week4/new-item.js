@@ -41,43 +41,15 @@ export default function NewItem() {
     };
 
     return (
-        <div>
-            <h2>Add an item</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name:
-                    <input className="text-black"
-                        type="text"
-                        value={name}
-                        onChange={handleNameChange}
-                    />
-                </label>
-                <label>
-                    Quantity:
-                    <input className="text-black"
-                        type="number"
-                        value={quantity}
-                        onChange={handleQuantityChange}
-                    />
-                </label>
-                <label>
-                    Category:
-                    <select className="text-black"
-                        value={category}
-                        onChange={handleCategoryChange}
-                    >
-                        <option value="produce">Produce</option>
-                        <option value="dairy">Dairy</option>
-                        <option value="bakery">Bakery</option>
-                        <option value="meat">Meat</option>
-                        <option value="canned goods">Canned Goods</option>
-                        <option value="dry goods">Dry Goods</option>
-                        <option value="household">Household</option>
-                    </select>
-                </label>
-                <button type="submit">Add</button>
+        <main className="flex justify-center">
+            <form  className=" text-black">
+                <div>
+                    <input type="text" placeholder="Item Name" value={setName} required=""/>
+                </div>
+                <div>
+                    <input type="number" min={1} max={99} value={1} required=""/>
+                </div>
             </form>
-            {eventCreated && <p>Item created!</p>}
-        </div>
+        </main>
     );
 }
