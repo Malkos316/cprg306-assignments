@@ -1,0 +1,28 @@
+"use strict"
+
+import {useState} from "react";
+import Dog from "./dog";
+
+const dogData = [
+    {name: "fido", age: 5},
+    {name: "spot", age: 3},
+    {name: "rex", age: 10},
+    {name: "rover", age: 7},
+    {name: "bingo", age: 1},
+];
+
+export default function DogList() {
+        const [dogs, setDogs] = useState(dogData);
+
+        return(
+            <div>
+                <h2>Dog List</h2>
+                {dogs.map((dog, index) => (
+                    <div key={dog.name}>
+                        <Dog name={dog.name} age={dog.age} />
+                    </div>
+                ))}
+            </div>
+        );
+
+}
