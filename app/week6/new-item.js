@@ -8,8 +8,8 @@ export default function NewItem({ onAddItem }) {
     const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState("produce");
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = (item) => {
+        item.preventDefault();
 
         let newItem = {
             id,
@@ -36,7 +36,7 @@ export default function NewItem({ onAddItem }) {
                         placeholder="Item Name"
                         value={name}
                         required=""
-                        onChange={(event => setName(event.target.value))} />
+                        onChange={(item => setName(item.target.value))} />
                 </div>
                 <div className="mb-4 flex justify-between">
                     <input className="w-20 p-2 rounded-lg"
@@ -45,11 +45,11 @@ export default function NewItem({ onAddItem }) {
                         max={99}
                         value={quantity}
                         required=""
-                        onChange={(event => setQuantity(event.target.value))} />
+                        onChange={(item => setQuantity(parseInt(item.target.value)))} />
                     <select className="rounded-lg p-2"
                         value={category}
                         required=""
-                        onChange={(event) => setCategory(event.target.value)}>
+                        onChange={(item) => setCategory(item.target.value)}>
                         <option value="produce">Produce</option>
                         <option value="dairy">Dairy</option>
                         <option value="meat">Meat</option>
