@@ -29,7 +29,7 @@ export default function NewItem({ onAddItem }) {
 
     return (
         <main className="flex justify-center">
-            <form className=" text-black bg-slate-700 p-4 m-4 max-w-sm w-full rounded-lg">
+            <form onSubmit={handleSubmit} className=" text-black bg-slate-700 p-4 m-4 max-w-sm w-full rounded-lg">
                 <div className="mb-2">
                     <input className=" p-2 rounded-lg w-full"
                         type="text"
