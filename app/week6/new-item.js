@@ -3,15 +3,16 @@
 import { useState } from "react";
 
 export default function NewItem({ onAddItem }) {
+    const id = Math.random()
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState("produce");
-    const [itemCreated, setItemCreated] = useState(false);
 
-    const handleSubmit = (item) => {
-        item.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-        const newItem = {
+        let newItem = {
+            id,
             name,
             quantity,
             category,
@@ -19,25 +20,11 @@ export default function NewItem({ onAddItem }) {
 
         console.log(newItem);
 
+        onAddItem(newItem);
+
         setName("");
         setQuantity(1);
         setCategory("produce");
-
-        setItemCreated(false);
-
-        onAddItem(newItem);
-    };
-
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-    };
-
-    const handleQuantityChange = (event) => {
-        setQuantity(event.target.value);
-    };
-
-    const handleCategoryChange = (event) => {
-        setCategory(event.target.value);
     };
 
     return (
@@ -49,7 +36,7 @@ export default function NewItem({ onAddItem }) {
                         placeholder="Item Name"
                         value={name}
                         required=""
-                        onChange={handleNameChange} />
+                        onChange={(event => setName(event.target.value))} />
                 </div>
                 <div className="mb-4 flex justify-between">
                     <input className="w-20 p-2 rounded-lg"
@@ -58,11 +45,11 @@ export default function NewItem({ onAddItem }) {
                         max={99}
                         value={quantity}
                         required=""
-                        onChange={handleQuantityChange} />
+                        onChange={(event => setQuantity(event.target.value))} />
                     <select className="rounded-lg p-2"
                         value={category}
                         required=""
-                        onChange={handleCategoryChange}>
+                        onChange={(event) => setCategory(event.target.value)}>
                         <option value="produce">Produce</option>
                         <option value="dairy">Dairy</option>
                         <option value="meat">Meat</option>
