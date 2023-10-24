@@ -16,13 +16,17 @@ export default function Page() {
 
 	return (
 		<main className="p-10">
-			<h1 className=" flex flex-col items-center text-4xl font-thick">
+			<h1 className="text-4xl font-thick">
 				Shopping List
 			</h1>
-
-			<NewItem onAddItem={handleAddItem} />
-
-			<ItemList items={items} />
+			<div className="flex flex-row border border-red-200">
+				<div className=" flex basis-1/3 w-150">
+					<NewItem onAddItem={handleAddItem} />
+				</div>
+			</div>
+			<div>
+				<ItemList items={items} />
+			</div>
 
 		</main>
 	);
