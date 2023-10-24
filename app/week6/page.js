@@ -20,9 +20,9 @@ export default function Page() {
 				Shopping List
 			</h1>
 
-			<ItemList items={items} />
-
 			<NewItem onAddItem={handleAddItem} />
+
+			<ItemList items={items} />
 
 		</main>
 	);
