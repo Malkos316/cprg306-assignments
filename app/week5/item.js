@@ -1,4 +1,4 @@
-export default function Item({name, quantity, category}) {
+export default function Item({ name, quantity, category }) {
     return (
         <div className="border-1 max-w-sm m-2 p-2">
             <li>
@@ -8,7 +8,7 @@ export default function Item({name, quantity, category}) {
                 <p>
                     Qty: {quantity}
                 </p>
-                 <p>
+                <p>
                     Aisle: {category}
                 </p>
             </li>
