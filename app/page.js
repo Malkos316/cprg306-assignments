@@ -22,7 +22,10 @@ export default function Page() {
         <Link href="/week5">Week 5 ✔</Link>
       </p>
       <p className="m-1 hover:text-cyan-400" >
-        <Link href="/week6">Week 6 🚧</Link>
+        <Link href="/week6">Week 6 ✔</Link>
+      </p>
+      <p className="m-1 hover:text-cyan-400" >
+        <Link href="/week7">Week 7 🚧</Link>
       </p>
       <p className="m-1 hover:text-cyan-400" >
         <Link href="/week5Demo">Week 5 Demo</Link>
