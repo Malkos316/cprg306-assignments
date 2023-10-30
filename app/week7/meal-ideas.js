@@ -40,12 +40,12 @@ export default function MealIdeas({ ingredient }) {
         loadMeals();
     }, [ingredient]);
 
-    const displayText = ingredient ? `${ingredient}` : "Select an ingredient to get meal ideas";
+    const displayText = ingredient ? "" : "Select an ingredient to get meal ideas";
 
     return (
         <div>
-            <h2 className="text-3xl">
-                Meal Ideas:
+            <h2 className="text-3xl capitalize">
+                Meal Ideas: {ingredient}
             </h2>
             <p className="capitalize">
                 {displayText}
