@@ -3,33 +3,43 @@
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json";
+import MealIdeas from "./meal-ideas";
 import { useState } from "react";
 
 
 export default function Page() {
 
 	const [items, setItems] = useState(itemsData);
+	const [selectItemName, setSelectItemName] = useState("");
 
 	function handleAddItem(newItem) {
 		setItems([...items, newItem]);
 	}
 
+	function handleItemSelect(item) {
+		let name = item.name.split(",")[0].replace(/[^a-zA-Z ]/g, "").trim();
+		setSelectItemName(name);
+	}
+
 	return (
-		<main className="p-10">
-			<h1 className="text-4xl font-thick">
-				Shopping List
-			</h1>
-			<div className="flex flex-row border border-red-200">
-				<div className=" flex basis-1/3 w-150">
+		<main className=" flex p-10">
+			<div className="flex flex-col basis-1/3">
+				<h1 className="text-4xl font-thick">
+					Shopping List
+				</h1>
+				<div className="  max-w-150">
 					<NewItem onAddItem={handleAddItem} />
 				</div>
-				<div className=" flex basis-1/3 justify-center border">
-					Meal ideas
+				<div>
+					<ItemList items={items} onItemSelect={handleItemSelect} />
 				</div>
 			</div>
 			<div>
-				<ItemList items={items} />
+				<div className=" flex flex-col basis-1/3 justify-center ">
+					<MealIdeas ingredient={selectItemName} />
+				</div>
 			</div>
+
 
 		</main>
 	);
