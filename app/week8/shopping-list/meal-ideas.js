@@ -23,7 +23,6 @@ export default function MealIdeas({ ingredient }) {
                 setMealIdea([]);
                 return;
             }
-
             const data = await fetchMeals(ingredient);
             setMealIdea(data);
             if (data !== null) {
@@ -41,9 +40,16 @@ export default function MealIdeas({ ingredient }) {
         loadMeals();
     }, [ingredient]);
 
+    const displayText = ingredient ? "" : "Select an ingredient to get meal ideas";
+
     return (
         <div>
-            <h2>Meal Idea for {ingredient}</h2>
+            <h2 className="text-3xl capitalize">
+                Meal Ideas: {ingredient}
+            </h2>
+            <p className="capitalize">
+                {displayText}
+            </p>
             <ul>
                 {mealIdea.map((meal) => (
                     <li key={meal.idMeal}>{meal.strMeal} </li>
