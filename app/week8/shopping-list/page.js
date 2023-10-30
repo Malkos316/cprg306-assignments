@@ -5,9 +5,12 @@ import NewItem from "./new-item";
 import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas";
 import { useState } from "react";
+import { useUserAuth } from "../_utils/auth-context";
 
 
 export default function Page() {
+
+	const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
 	const [items, setItems] = useState(itemsData);
 	const [selectItemName, setSelectItemName] = useState("");
@@ -23,23 +26,36 @@ export default function Page() {
 
 	return (
 		<main className=" flex p-10">
-			<div className="flex flex-col basis-1/3">
-				<h1 className="text-4xl font-thick">
-					Shopping List
-				</h1>
-				<div className="  max-w-150">
-					<NewItem onAddItem={handleAddItem} />
-				</div>
+			{user ? (
+				<>
+					<div className="flex flex-col basis-1/3">
+						<h1 className="text-4xl font-thick">
+							Shopping List
+						</h1>
+						<div className="  max-w-150">
+							<NewItem onAddItem={handleAddItem} />
+						</div>
+						<div>
+							<ItemList items={items} onItemSelect={handleItemSelect} />
+						</div>
+					</div>
+					<div>
+						<div className=" flex flex-col basis-1/3 justify-center ">
+							<MealIdeas ingredient={selectItemName} />
+						</div>
+					</div>
+					<div className=" absolute top-0 right-0 mr-10 mt-10">
+						<button onClick={firebaseSignOut}>Sign Out</button>
+					</div>
+				</>
+			) : (
 				<div>
-					<ItemList items={items} onItemSelect={handleItemSelect} />
+					<p>
+						You are not signed in.
+					</p>
+					<button onClick={gitHubSignIn}>Sign In with GitHub</button>
 				</div>
-			</div>
-			<div>
-				<div className=" flex flex-col basis-1/3 justify-center ">
-					<MealIdeas ingredient={selectItemName} />
-				</div>
-			</div>
-
+			)}
 
 		</main>
 	);
