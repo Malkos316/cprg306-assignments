@@ -19,7 +19,7 @@ export default function Page() {
 			<h1 className="text-4xl font-thick">
 				Shopping List
 			</h1>
-			<div className="flex flex-row border border-red-200">
+			<div className="flex flex-row">
 				<div className=" flex basis-1/3 w-150">
 					<NewItem onAddItem={handleAddItem} />
 				</div>
