@@ -31,7 +31,7 @@ export default function Page() {
         <Link href="/week8">Week 8 ✔</Link>
       </p>
       <p className="m-1 hover:text-cyan-400" >
-        <Link href="/week5Demo">Week 5 Demo</Link>
+        <Link href="/week8">Week 10 🚧</Link>
       </p>
     </main>
   );
